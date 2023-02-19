@@ -13,11 +13,11 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class Auth {
-	WebDriver  driver = new ChromeDriver();
+	WebDriver  driver ;
 		@Given("open browser")
 		public void open_browser() {
-		 System.setProperty("chromedriver","scr/test/resources/chromedriver.exe");  
-		 
+		 System.setProperty("webdriver.chrome.driver","scr/test/resources/chromedriver.exe");  
+		 driver =  new ChromeDriver() ;
 		 driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
 	      driver.manage().deleteAllCookies();
 	      driver.manage().window().maximize();
@@ -35,7 +35,7 @@ public class Auth {
 			Signup.click();
 		}
 
-		@Then("Write name")
+		@When("Write name")
 		public void write_name() {
 			WebElement Name;
 			Name = driver.findElement(By.xpath ("//input[@aria-label='Prénom']"));
@@ -65,19 +65,19 @@ public class Auth {
 
 		@Then("write birth date")
 		public void write_birth_date() {
-			WebElement listday = driver.findElement(By.id("//select[@title='Jour']"));
+			WebElement listday = driver.findElement(By.xpath("//select[@title='Jour']"));
 			// appel class select
 		Select select = new Select(listday);
 		select.selectByValue("31");
-		WebElement listMonth = driver.findElement(By.id("//select[@title='Mois']"));
+		WebElement listMonth = driver.findElement(By.xpath("//select[@title='Mois']"));
 		// appel class select
 		Select selected = new Select(listMonth);
-		selected.selectByValue("juil");
+		selected.selectByVisibleText("juil");
 
-		WebElement listYear = driver.findElement(By.id("//select[@title='Année']"));
+		WebElement listYear = driver.findElement(By.xpath("//select[@title='Année']"));
 		// appel class select
 		Select selecte = new Select(listYear);
-		selecte.selectByValue("juil");
+		selecte.selectByValue("1994");
 		}
 
 		@Then("choose genre")

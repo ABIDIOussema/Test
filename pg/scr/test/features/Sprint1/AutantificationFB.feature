@@ -14,3 +14,4 @@ Feature: Autentification Facebook
     And confirm Email
     And write birth date 
     And choose genre
+    
