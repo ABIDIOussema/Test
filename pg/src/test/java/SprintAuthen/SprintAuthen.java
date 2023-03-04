@@ -1,4 +1,4 @@
-package Sprint;
+package SprintAuthen;
 
 import java.util.concurrent.TimeUnit;
 
@@ -12,7 +12,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class Auth {
+public class SprintAuthen {
 	WebDriver  driver ;
 		@Given("open browser")
 		public void open_browser() {
